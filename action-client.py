@@ -1,3 +1,48 @@
+
+ROS IN 5 DAYS
+Unit 4: ROS Actions
+
+
+Estimated time to completion: 3 hours
+
+What will you learn with this unit?
+
+What is a ROS action
+How to manage the actions of a robot
+How to call an action server
+Part 1
+1) Did you understand the previous sections about topics and services?
+2) Are they clear to you?
+3) Did you have a good breakfast today?
+
+If your answers to all of those questions were yes, then you are ready to learn about ROS actions. Otherwise, go back and do not come back until all of those answers are a big YES. You are going to need it...
+
+Quadrotor simulation
+Before starting with ROS actions learning, let's have some fun with the quadrotor simulation.
+Make the quadrotor take off and control it with the keyboard.
+How would you do that?
+
+By issuing the following commands:
+
+First, you need to take off.
+
+Execute in WebShell #1
+
+rostopic pub /drone/takeoff std_msgs/Empty "{}"
+rostopic pub /drone/takeoff std_msgs/Empty "{}"
+Hit CTRL+C to stop it and to be able to type more commands. In this case, the commands to move the drone with the keyboard.
+
+Execute in WebShell #1
+
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+To land the drone, just publish into the /drone/land topic:
+
+Execute in WebShell #1
+
+rostopic pub /drone/land std_msgs/Empty "{}"
+rostopic pub /drone/land std_msgs/Empty "{}"
+**Code Explanation #1**
+
 "rosrun": ROS command that allows you to run a ROS program without having to create a launch file to launch it (it is a different way from what we've been doing here).
 
 "teleop_twist_keyboard": Name of the package where the ROS program is. In this case, where the python executable is.
@@ -45,9 +90,11 @@ How do you know the whole list of services available?
 Execute in WebShell #2
 
 rosservice list
+rosservice list
 How do you know the whole list of action servers available?
 Execute in WebShell #2
 
+rosaction list
 rosaction list
 WRONG GUESS!!!
 
@@ -731,3 +778,4 @@ Sometimes you may find that when you click the SEND GOAL button, or when you try
 Maybe you're a little bit angry at us now, because we didn't show you this tool before? Don't be!!
 
 The very simple reason why we didn't talk about this tool earlier is because we want you to learn how Actions really work inside. Once you have the knowledge, you are then ready to use the shortcuts.
+
